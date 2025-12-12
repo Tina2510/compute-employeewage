@@ -110,6 +110,19 @@ public class EmployeeWageCal {
         int infosysWage = ComputeEmpWage(25, 22, 120);
         System.out.println(" TCS Total = " + tcsWage + " Infosys Total = " + infosysWage);
     }
+    class Company {
+        String name;
+        int totalWage;
+        Company(String name) { this.name = name; }
+        void setWage(int wage) { totalWage = wage; }
+    }
+    public void SaveTotalWage() {
+        System.out.print("UC9: Enter company name: ");
+        String name = sc.next();
+        Company c = new Company(name);
+        c.setWage(ComputeEmpWage(20,20,100));
+        System.out.println("" + name + " Total Wage = " + c.totalWage);
+    }
 
 
 
