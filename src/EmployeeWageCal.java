@@ -49,15 +49,13 @@ public class EmployeeWageCal {
         System.out.println("UC4: Daily Wage using switch = " + dailyWage);
     }
     public void MonthlyWage() {
-        System.out.print("UC5: Enter wage per hour: ");
-        int wagePerHour = sc.nextInt();
-        System.out.print("Enter full day hours: ");
-        int fullDayHours = sc.nextInt();
-        System.out.print("Enter working days: ");
-        int workingDays = sc.nextInt();
+        int wagePerHour = 20;
+        int fullDayHours = 8;
+        int workingDays = 20;
         int totalWage = wagePerHour * fullDayHours * workingDays;
-        System.out.println("UC5: Monthly Wage = " + totalWage);
+        System.out.println("Monthly Wage = " + totalWage);
     }
+
 
 
 
