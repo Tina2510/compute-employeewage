@@ -16,11 +16,10 @@ public class EmployeeWageCal {
         }
     }
 
+
     public void DailyWage() {
-        System.out.print("Enter wage per hour: ");
-        int wagePerHour = sc.nextInt();
-        System.out.print("Enter full day hours: ");
-        int fullDayHours = sc.nextInt();
+        int wagePerHour = 20;
+        int fullDayHours = 8;
         int dailyWage = wagePerHour * fullDayHours;
         System.out.println("Daily Wage = " + dailyWage);
     }
