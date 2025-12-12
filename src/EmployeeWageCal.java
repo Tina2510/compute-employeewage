@@ -99,7 +99,7 @@ public class EmployeeWageCal {
             totalHours += hours;
             totalWage += hours * wagePerHour;
         }
-        System.out.println(" Computed Wage = " + totalWage);
+        System.out.println("Computed Wage = " + totalWage);
         return totalWage;
     }
 
