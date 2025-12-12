@@ -123,6 +123,17 @@ public class EmployeeWageCal {
         c.setWage(ComputeEmpWage(20,20,100));
         System.out.println("" + name + " Total Wage = " + c.totalWage);
     }
+    public void ManageMultipleCompaniesArray() {
+        Company[] companies = new Company[3];
+        for(int i=0;i<3;i++){
+            System.out.print("Enter company name: ");
+            String name = sc.next();
+            companies[i] = new Company(name);
+            companies[i].setWage(ComputeEmpWage(20,20,100));
+        }
+        System.out.println("Total Wages for multiple companies:");
+        for (Company c : companies) System.out.println(c.name + " = " + c.totalWage);
+    }
 
 
 
