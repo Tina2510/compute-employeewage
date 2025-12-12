@@ -161,9 +161,10 @@ public class EmployeeWageCal {
         }
 
         public void computeWages() {
-            System.out.println("UC11: Wages via Interface:");
+            System.out.println(" Wages via Interface:");
             for (Company c : list)
                 System.out.println(c.name + " = " + c.totalWage);
+            for(Company c : list) System.out.println(c.name + " = " + c.totalWage);
         }
     }
     public void InterfaceApproach() {
