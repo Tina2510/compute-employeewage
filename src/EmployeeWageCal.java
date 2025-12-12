@@ -7,30 +7,30 @@ public class EmployeeWageCal {
         Random random = new Random();
         int attendance = random.nextInt(2); // 0 = Absent, 1 = Present
         if (attendance == 1) {
-            System.out.println("UC1: Employee is Present");
+            System.out.println("Employee is Present");
         } else {
-            System.out.println("UC1: Employee is Absent");
+            System.out.println("Employee is Absent");
         }
     }
     public void DailyWage() {
-        System.out.print("UC2: Enter wage per hour: ");
+        System.out.print("Enter wage per hour: ");
         int wagePerHour = sc.nextInt();
         System.out.print("Enter full day hours: ");
         int fullDayHours = sc.nextInt();
         int dailyWage = wagePerHour * fullDayHours;
-        System.out.println("UC2: Daily Wage = " + dailyWage);
+        System.out.println("Daily Wage = " + dailyWage);
     }
     public void PartTimeWage() {
-        System.out.print("UC3: Enter wage per hour: ");
+        System.out.print(" Enter wage per hour: ");
         int wagePerHour = sc.nextInt();
         System.out.print("Enter part-time hours: ");
         int partTimeHours = sc.nextInt();
         int dailyWage = wagePerHour * partTimeHours;
-        System.out.println("UC3: Part-time Wage = " + dailyWage);
+        System.out.println("Part-time Wage = " + dailyWage);
     }
 
     public void UsingSwitchCase() {
-        System.out.print("UC4: Enter wage per hour: ");
+        System.out.print("Enter wage per hour: ");
         int wagePerHour = sc.nextInt();
         System.out.print("Full-time hours: ");
         int fullTimeHours = sc.nextInt();
@@ -46,20 +46,20 @@ public class EmployeeWageCal {
             default: dailyHours = 0;
         }
         int dailyWage = dailyHours * wagePerHour;
-        System.out.println("UC4: Daily Wage using switch = " + dailyWage);
+        System.out.println(" Daily Wage using switch = " + dailyWage);
     }
     public void MonthlyWage() {
-        System.out.print("UC5: Enter wage per hour: ");
+        System.out.print(" Enter wage per hour: ");
         int wagePerHour = sc.nextInt();
         System.out.print("Enter full day hours: ");
         int fullDayHours = sc.nextInt();
         System.out.print("Enter working days: ");
         int workingDays = sc.nextInt();
         int totalWage = wagePerHour * fullDayHours * workingDays;
-        System.out.println("UC5: Monthly Wage = " + totalWage);
+        System.out.println("Monthly Wage = " + totalWage);
     }
     public void TillCondition() {
-        System.out.print("UC6: Enter wage per hour: ");
+        System.out.print(" Enter wage per hour: ");
         int wagePerHour = sc.nextInt();
         System.out.print("Full-time hours: ");
         int fullDayHours = sc.nextInt();
@@ -86,7 +86,21 @@ public class EmployeeWageCal {
             totalHours += hours;
             totalWage += hours * wagePerHour;
         }
-        System.out.println("UC6: Total Wage = " + totalWage + " | Days Worked = " + totalDays + " | Hours Worked = " + totalHours);
+        System.out.println("Total Wage = " + totalWage + " Days Worked = " + totalDays + " | Hours Worked = " + totalHours);
+    }
+    public int ComputeEmpWage(int wagePerHour, int maxDays, int maxHours) {
+        int totalHours = 0, totalDays = 0, totalWage = 0;
+        Random random = new Random();
+        while (totalDays < maxDays && totalHours < maxHours) {
+            totalDays++;
+            int empCheck = random.nextInt(3);
+            int hours = (empCheck == 1) ? 8 : (empCheck == 2 ? 4 : 0);
+            if (totalHours + hours > maxHours) hours = maxHours - totalHours;
+            totalHours += hours;
+            totalWage += hours * wagePerHour;
+        }
+        System.out.println(" Computed Wage = " + totalWage);
+        return totalWage;
     }
 
 
