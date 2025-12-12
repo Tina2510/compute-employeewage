@@ -57,6 +57,7 @@ public class EmployeeWageCal {
         int workingDays = 20;
         int totalWage = wagePerHour * fullDayHours * workingDays;
         System.out.println("Monthly Wage = " + totalWage);
+
     }
 
 
@@ -230,7 +231,9 @@ public class EmployeeWageCal {
         c.setDailyWages(daily);
         c.setWage(totalWage);
         System.out.println(" Daily Wages: " + c.dailyWages + "Total: " + c.totalWage);
+
     }
+
 
 
 
@@ -252,4 +255,5 @@ public class EmployeeWageCal {
         emp.StoreDailyWage();
         //emp.QueryTotalWage();
     }
+
 }
