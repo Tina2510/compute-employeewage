@@ -12,11 +12,9 @@ public class EmployeeWageCal {
             System.out.println("UC1: Employee is Absent");
         }
     }
-    public void DailyWage() {
-        System.out.print("UC2: Enter wage per hour: ");
-        int wagePerHour = sc.nextInt();
-        System.out.print("Enter full day hours: ");
-        int fullDayHours = sc.nextInt();
+    public void uc2_DailyWage() {
+        int wagePerHour = 20;
+        int fullDayHours = 8;
         int dailyWage = wagePerHour * fullDayHours;
         System.out.println("UC2: Daily Wage = " + dailyWage);
     }
