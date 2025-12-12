@@ -104,11 +104,9 @@ public class EmployeeWageCal {
     }
 
     public void MultipleCompanies() {
-        System.out.println(" TCS Details:");
         int tcsWage = ComputeEmpWage(20, 20, 100);
-        System.out.println(" Infosys Details:");
         int infosysWage = ComputeEmpWage(25, 22, 120);
-        System.out.println(" TCS Total = " + tcsWage + " Infosys Total = " + infosysWage);
+        System.out.println("UC8: TCS Total = " + tcsWage + " | Infosys Total = " + infosysWage);
     }
 
 
