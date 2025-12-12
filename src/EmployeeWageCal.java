@@ -143,17 +143,14 @@ public class EmployeeWageCal {
             list.add(c);
         }
         public void computeWages() {
-            System.out.println(" Wages via Interface:");
+            System.out.println("UC11: Wages via Interface:");
             for(Company c : list) System.out.println(c.name + " = " + c.totalWage);
         }
     }
-    public void InterfaceApproach() {
+    public void uc11_InterfaceApproach() {
         EmpWageImpl emp = new EmpWageImpl();
-        for(int i=0;i<2;i++){
-            System.out.print("Enter company name: ");
-            String name = sc.next();
-            emp.addCompany(name, 20,20,100);
-        }
+        emp.addCompany("TCS",20,20,100);
+        emp.addCompany("Infosys",25,22,120);
         emp.computeWages();
     }
 
