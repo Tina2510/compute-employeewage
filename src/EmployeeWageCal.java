@@ -134,6 +134,28 @@ public class EmployeeWageCal {
         System.out.println("Total Wages for multiple companies:");
         for (Company c : companies) System.out.println(c.name + " = " + c.totalWage);
     }
+    interface ICompute { void addCompany(String name,int wage,int days,int hours); void computeWages(); }
+    class EmpWageImpl implements ICompute {
+        ArrayList<Company> list = new ArrayList<>();
+        public void addCompany(String name,int wage,int days,int hours) {
+            Company c = new Company(name);
+            c.setWage(ComputeEmpWage(wage,days,hours));
+            list.add(c);
+        }
+        public void computeWages() {
+            System.out.println(" Wages via Interface:");
+            for(Company c : list) System.out.println(c.name + " = " + c.totalWage);
+        }
+    }
+    public void InterfaceApproach() {
+        EmpWageImpl emp = new EmpWageImpl();
+        for(int i=0;i<2;i++){
+            System.out.print("Enter company name: ");
+            String name = sc.next();
+            emp.addCompany(name, 20,20,100);
+        }
+        emp.computeWages();
+    }
 
 
 
