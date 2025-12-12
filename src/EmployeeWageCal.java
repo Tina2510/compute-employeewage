@@ -131,11 +131,10 @@ public class EmployeeWageCal {
     }
 
     public void SaveTotalWage() {
-        System.out.print("Enter company name: ");
-        String name = sc.next();
-        Company c = new Company(name);
-        c.setWage(ComputeEmpWage(20, 20, 100));
-        System.out.println("" + name + " Total Wage = " + c.totalWage);
+        Company tcs = new Company("TCS");
+        tcs.setWage(ComputeEmpWage(20,20,100));
+        System.out.println("TCS Total Wage = " + tcs.totalWage);
+
     }
 
     public void ManageMultipleCompaniesArray() {
