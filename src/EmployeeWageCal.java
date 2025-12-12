@@ -58,6 +58,37 @@ public class EmployeeWageCal {
         int totalWage = wagePerHour * fullDayHours * workingDays;
         System.out.println("UC5: Monthly Wage = " + totalWage);
     }
+    public void TillCondition() {
+        System.out.print("UC6: Enter wage per hour: ");
+        int wagePerHour = sc.nextInt();
+        System.out.print("Full-time hours: ");
+        int fullDayHours = sc.nextInt();
+        System.out.print("Max hours: ");
+        int maxHours = sc.nextInt();
+        System.out.print("Max days: ");
+        int maxDays = sc.nextInt();
+
+        int totalHours = 0;
+        int totalDays = 0;
+        int totalWage = 0;
+
+        Random random = new Random();
+        while (totalDays < maxDays && totalHours < maxHours) {
+            totalDays++;
+            int empCheck = random.nextInt(3);
+            int hours = 0;
+            switch (empCheck) {
+                case 1: hours = 8; break;
+                case 2: hours = 4; break;
+                default: hours = 0;
+            }
+            if (totalHours + hours > maxHours) hours = maxHours - totalHours;
+            totalHours += hours;
+            totalWage += hours * wagePerHour;
+        }
+        System.out.println("UC6: Total Wage = " + totalWage + " | Days Worked = " + totalDays + " | Hours Worked = " + totalHours);
+    }
+
 
 
 
