@@ -32,13 +32,9 @@ public class EmployeeWageCal {
     }
 
     public void UsingSwitchCase() {
-        System.out.print("Enter wage per hour: ");
-        int wagePerHour = sc.nextInt();
-        System.out.print("Full-time hours: ");
-        int fullTimeHours = sc.nextInt();
-        System.out.print("Part-time hours: ");
-        int partTimeHours = sc.nextInt();
-
+        int wagePerHour = 20;
+        int fullTimeHours = 8;
+        int partTimeHours = 4;
         Random random = new Random();
         int empCheck = random.nextInt(3);
         int dailyHours;
@@ -248,6 +244,9 @@ public class EmployeeWageCal {
         System.out.print("Enter company name to query: ");
         String query = sc.next();
         System.out.println(" Queried Wage for " + query + " = " + wageMap.getOrDefault(query, 0));
+=======
+        System.out.println("Daily Wage using switch = " + dailyWage);
+>>>>>>> usecase4
     }
 
 
