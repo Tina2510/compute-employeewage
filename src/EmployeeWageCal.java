@@ -160,14 +160,10 @@ public class EmployeeWageCal {
     }
     public void ArrayListApproach() {
         ArrayList<Company> companies = new ArrayList<>();
-        for(int i=0;i<3;i++){
-            System.out.print("Enter company name: ");
-            String name = sc.next();
-            Company c = new Company(name);
-            c.setWage(ComputeEmpWage(20,20,100));
-            companies.add(c);
-        }
-        System.out.println("Wages with ArrayList:");
+        companies.add(new Company("TCS")); companies.get(0).setWage(ComputeEmpWage(20,20,100));
+        companies.add(new Company("Infosys")); companies.get(1).setWage(ComputeEmpWage(25,22,120));
+        companies.add(new Company("Wipro")); companies.get(2).setWage(ComputeEmpWage(30,18,90));
+        System.out.println("UC12: Wages with ArrayList:");
         for(Company c : companies) System.out.println(c.name + " = " + c.totalWage);
     }
 
