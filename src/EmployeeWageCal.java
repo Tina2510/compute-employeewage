@@ -51,17 +51,15 @@ public class EmployeeWageCal {
         int dailyWage = dailyHours * wagePerHour;
         System.out.println(" Daily Wage using switch = " + dailyWage);
     }
-
     public void MonthlyWage() {
-        System.out.print(" Enter wage per hour: ");
-        int wagePerHour = sc.nextInt();
-        System.out.print("Enter full day hours: ");
-        int fullDayHours = sc.nextInt();
-        System.out.print("Enter working days: ");
-        int workingDays = sc.nextInt();
+        int wagePerHour = 20;
+        int fullDayHours = 8;
+        int workingDays = 20;
         int totalWage = wagePerHour * fullDayHours * workingDays;
         System.out.println("Monthly Wage = " + totalWage);
     }
+
+
 
     public void TillCondition() {
         System.out.print(" Enter wage per hour: ");
@@ -234,20 +232,7 @@ public class EmployeeWageCal {
         System.out.println(" Daily Wages: " + c.dailyWages + "Total: " + c.totalWage);
     }
 
-    Map<String, Integer> wageMap = new HashMap<>();
 
-    public void QueryTotalWage() {
-        System.out.print("Enter company name to store: ");
-        String name = sc.next();
-        int wage = ComputeEmpWage(20, 20, 100);
-        wageMap.put(name, wage);
-        System.out.print("Enter company name to query: ");
-        String query = sc.next();
-        System.out.println(" Queried Wage for " + query + " = " + wageMap.getOrDefault(query, 0));
-=======
-        System.out.println("Daily Wage using switch = " + dailyWage);
->>>>>>> usecase4
-    }
 
 
     public static void main(String[] args) {
@@ -265,6 +250,6 @@ public class EmployeeWageCal {
         emp.InterfaceApproach();
         emp.ArrayListApproach();
         emp.StoreDailyWage();
-        emp.QueryTotalWage();
+        //emp.QueryTotalWage();
     }
 }
