@@ -63,14 +63,11 @@ public class EmployeeWageCal {
 
 
     public void TillCondition() {
-        System.out.print(" Enter wage per hour: ");
-        int wagePerHour = sc.nextInt();
-        System.out.print("Full-time hours: ");
-        int fullDayHours = sc.nextInt();
-        System.out.print("Max hours: ");
-        int maxHours = sc.nextInt();
-        System.out.print("Max days: ");
-        int maxDays = sc.nextInt();
+
+        int wagePerHour = 20;
+        int fullDayHours = 8;
+        int maxHours = 100;
+        int maxDays = 20;
 
         int totalHours = 0;
         int totalDays = 0;
@@ -95,6 +92,7 @@ public class EmployeeWageCal {
             totalHours += hours;
             totalWage += hours * wagePerHour;
         }
+
         System.out.println("Total Wage = " + totalWage + " Days Worked = " + totalDays + " | Hours Worked = " + totalHours);
     }
 
@@ -231,6 +229,9 @@ public class EmployeeWageCal {
         c.setDailyWages(daily);
         c.setWage(totalWage);
         System.out.println(" Daily Wages: " + c.dailyWages + "Total: " + c.totalWage);
+
+
+        System.out.println("Total Wage = " + totalWage + " | Days Worked = " +   " Hours Worked = " );
 
     }
 
