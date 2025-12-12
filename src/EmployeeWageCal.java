@@ -29,6 +29,27 @@ public class EmployeeWageCal {
         System.out.println("UC3: Part-time Wage = " + dailyWage);
     }
 
+    public void UsingSwitchCase() {
+        System.out.print("UC4: Enter wage per hour: ");
+        int wagePerHour = sc.nextInt();
+        System.out.print("Full-time hours: ");
+        int fullTimeHours = sc.nextInt();
+        System.out.print("Part-time hours: ");
+        int partTimeHours = sc.nextInt();
+
+        Random random = new Random();
+        int empCheck = random.nextInt(3);
+        int dailyHours;
+        switch (empCheck) {
+            case 1: dailyHours = fullTimeHours; break;
+            case 2: dailyHours = partTimeHours; break;
+            default: dailyHours = 0;
+        }
+        int dailyWage = dailyHours * wagePerHour;
+        System.out.println("UC4: Daily Wage using switch = " + dailyWage);
+    }
+
+
 
 
 }
