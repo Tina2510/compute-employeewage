@@ -125,13 +125,10 @@ public class EmployeeWageCal {
     }
     public void ManageMultipleCompaniesArray() {
         Company[] companies = new Company[3];
-        for(int i=0;i<3;i++){
-            System.out.print("Enter company name: ");
-            String name = sc.next();
-            companies[i] = new Company(name);
-            companies[i].setWage(ComputeEmpWage(20,20,100));
-        }
-        System.out.println("Total Wages for multiple companies:");
+        companies[0] = new Company("TCS"); companies[0].setWage(ComputeEmpWage(20,20,100));
+        companies[1] = new Company("Infosys"); companies[1].setWage(ComputeEmpWage(25,22,120));
+        companies[2] = new Company("Wipro"); companies[2].setWage(ComputeEmpWage(30,18,90));
+        System.out.println("UC10: Total Wages for multiple companies:");
         for (Company c : companies) System.out.println(c.name + " = " + c.totalWage);
     }
 
