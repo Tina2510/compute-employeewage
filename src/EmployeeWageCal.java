@@ -1,5 +1,7 @@
 import java.util.*;
 import java.util.Random;
+import java.util.ArrayList;
+
 public class EmployeeWageCal {
     Scanner sc = new Scanner(System.in);
 
@@ -156,6 +158,20 @@ public class EmployeeWageCal {
         }
         emp.computeWages();
     }
+    public void ArrayListApproach() {
+        ArrayList<Company> companies = new ArrayList<>();
+        for(int i=0;i<3;i++){
+            System.out.print("Enter company name: ");
+            String name = sc.next();
+            Company c = new Company(name);
+            c.setWage(ComputeEmpWage(20,20,100));
+            companies.add(c);
+        }
+        System.out.println("Wages with ArrayList:");
+        for(Company c : companies) System.out.println(c.name + " = " + c.totalWage);
+    }
+
+
 
 
 
