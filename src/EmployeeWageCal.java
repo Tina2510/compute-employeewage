@@ -20,6 +20,15 @@ public class EmployeeWageCal {
         int dailyWage = wagePerHour * fullDayHours;
         System.out.println("UC2: Daily Wage = " + dailyWage);
     }
+    public void PartTimeWage() {
+        System.out.print("UC3: Enter wage per hour: ");
+        int wagePerHour = sc.nextInt();
+        System.out.print("Enter part-time hours: ");
+        int partTimeHours = sc.nextInt();
+        int dailyWage = wagePerHour * partTimeHours;
+        System.out.println("UC3: Part-time Wage = " + dailyWage);
+    }
+
 
 
 }
