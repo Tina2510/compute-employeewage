@@ -205,8 +205,13 @@ public class EmployeeWageCal {
         System.out.println("Daily Wages: " + tcs.dailyWages + "  Total: " + tcs.totalWage);
     }
 
-
-
+    Map<String,Integer> wageMap = new HashMap<>();
+    public void QueryTotalWage() {
+        wageMap.put("TCS", ComputeEmpWage(20,20,100));
+        wageMap.put("Infosys", ComputeEmpWage(25,22,120));
+        System.out.println("UC14: Query TCS = " + wageMap.get("TCS"));
+        System.out.println("UC14: Query Infosys = " + wageMap.get("Infosys"));
+    }
 
 
     public static void main(String[] args) {
@@ -224,7 +229,7 @@ public class EmployeeWageCal {
         emp.InterfaceApproach();
         emp.ArrayListApproach();
         emp.StoreDailyWage();
-        //emp.QueryTotalWage();
+        emp.QueryTotalWage();
     }
 
 
