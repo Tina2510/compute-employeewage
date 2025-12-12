@@ -143,7 +143,7 @@ public class EmployeeWageCal {
     }
 
     public void SaveTotalWage() {
-        System.out.print("UC9: Enter company name: ");
+        System.out.print("Enter company name: ");
         String name = sc.next();
         Company c = new Company(name);
         c.setWage(ComputeEmpWage(20, 20, 100));
