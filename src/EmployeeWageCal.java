@@ -170,31 +170,28 @@ public class EmployeeWageCal {
         System.out.println("Wages with ArrayList:");
         for(Company c : companies) System.out.println(c.name + " = " + c.totalWage);
     }
+
+
     class CompanyWithDaily extends Company {
         ArrayList<Integer> dailyWages = new ArrayList<>();
         CompanyWithDaily(String name){super(name);}
         void setDailyWages(ArrayList<Integer> wages){dailyWages=wages;}
     }
     public void StoreDailyWage() {
-        System.out.print(" Enter company name: ");
-        String name = sc.next();
-        CompanyWithDaily c = new CompanyWithDaily(name);
+        CompanyWithDaily tcs = new CompanyWithDaily("TCS");
         ArrayList<Integer> daily = new ArrayList<>();
         Random random = new Random();
         int totalWage=0;
-        System.out.print("Enter number of working days: ");
-        int days = sc.nextInt();
-        System.out.print("Enter wage per hour: ");
-        int wagePerHour = sc.nextInt();
-        for(int i=0;i<days;i++){
+        for(int i=0;i<5;i++){
             int empCheck = random.nextInt(3);
             int hours = (empCheck==1)?8:(empCheck==2?4:0);
-            int wage = hours*wagePerHour; totalWage+=wage;
+            int wage = hours*20; totalWage+=wage;
             daily.add(wage);
         }
-        c.setDailyWages(daily); c.setWage(totalWage);
-        System.out.println(" Daily Wages: " + c.dailyWages + "Total: " + c.totalWage);
+        tcs.setDailyWages(daily); tcs.setWage(totalWage);
+        System.out.println("Daily Wages: " + tcs.dailyWages + "  Total: " + tcs.totalWage);
     }
+
 
 
 
