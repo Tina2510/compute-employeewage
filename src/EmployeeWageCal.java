@@ -1,6 +1,7 @@
 import java.util.*;
 import java.util.Random;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EmployeeWageCal {
     Scanner sc = new Scanner(System.in);
@@ -14,6 +15,7 @@ public class EmployeeWageCal {
             System.out.println("Employee is Absent");
         }
     }
+
     public void DailyWage() {
         System.out.print("Enter wage per hour: ");
         int wagePerHour = sc.nextInt();
@@ -22,6 +24,7 @@ public class EmployeeWageCal {
         int dailyWage = wagePerHour * fullDayHours;
         System.out.println("Daily Wage = " + dailyWage);
     }
+
     public void PartTimeWage() {
         System.out.print(" Enter wage per hour: ");
         int wagePerHour = sc.nextInt();
@@ -43,13 +46,19 @@ public class EmployeeWageCal {
         int empCheck = random.nextInt(3);
         int dailyHours;
         switch (empCheck) {
-            case 1: dailyHours = fullTimeHours; break;
-            case 2: dailyHours = partTimeHours; break;
-            default: dailyHours = 0;
+            case 1:
+                dailyHours = fullTimeHours;
+                break;
+            case 2:
+                dailyHours = partTimeHours;
+                break;
+            default:
+                dailyHours = 0;
         }
         int dailyWage = dailyHours * wagePerHour;
         System.out.println(" Daily Wage using switch = " + dailyWage);
     }
+
     public void MonthlyWage() {
         System.out.print(" Enter wage per hour: ");
         int wagePerHour = sc.nextInt();
@@ -60,6 +69,7 @@ public class EmployeeWageCal {
         int totalWage = wagePerHour * fullDayHours * workingDays;
         System.out.println("Monthly Wage = " + totalWage);
     }
+
     public void TillCondition() {
         System.out.print(" Enter wage per hour: ");
         int wagePerHour = sc.nextInt();
@@ -80,9 +90,14 @@ public class EmployeeWageCal {
             int empCheck = random.nextInt(3);
             int hours = 0;
             switch (empCheck) {
-                case 1: hours = 8; break;
-                case 2: hours = 4; break;
-                default: hours = 0;
+                case 1:
+                    hours = 8;
+                    break;
+                case 2:
+                    hours = 4;
+                    break;
+                default:
+                    hours = 0;
             }
             if (totalHours + hours > maxHours) hours = maxHours - totalHours;
             totalHours += hours;
@@ -90,6 +105,7 @@ public class EmployeeWageCal {
         }
         System.out.println("Total Wage = " + totalWage + " Days Worked = " + totalDays + " | Hours Worked = " + totalHours);
     }
+
     public int ComputeEmpWage(int wagePerHour, int maxDays, int maxHours) {
         int totalHours = 0, totalDays = 0, totalWage = 0;
         Random random = new Random();
@@ -112,95 +128,147 @@ public class EmployeeWageCal {
         int infosysWage = ComputeEmpWage(25, 22, 120);
         System.out.println(" TCS Total = " + tcsWage + " Infosys Total = " + infosysWage);
     }
+
     class Company {
         String name;
         int totalWage;
-        Company(String name) { this.name = name; }
-        void setWage(int wage) { totalWage = wage; }
+
+        Company(String name) {
+            this.name = name;
+        }
+
+        void setWage(int wage) {
+            totalWage = wage;
+        }
     }
+
     public void SaveTotalWage() {
         System.out.print("UC9: Enter company name: ");
         String name = sc.next();
         Company c = new Company(name);
-        c.setWage(ComputeEmpWage(20,20,100));
+        c.setWage(ComputeEmpWage(20, 20, 100));
         System.out.println("" + name + " Total Wage = " + c.totalWage);
     }
+
     public void ManageMultipleCompaniesArray() {
         Company[] companies = new Company[3];
-        for(int i=0;i<3;i++){
+        for (int i = 0; i < 3; i++) {
             System.out.print("Enter company name: ");
             String name = sc.next();
             companies[i] = new Company(name);
-            companies[i].setWage(ComputeEmpWage(20,20,100));
+            companies[i].setWage(ComputeEmpWage(20, 20, 100));
         }
         System.out.println("Total Wages for multiple companies:");
         for (Company c : companies) System.out.println(c.name + " = " + c.totalWage);
     }
-    interface ICompute { void addCompany(String name,int wage,int days,int hours); void computeWages(); }
+
+    interface ICompute {
+        void addCompany(String name, int wage, int days, int hours);
+
+        void computeWages();
+    }
+
     class EmpWageImpl implements ICompute {
         ArrayList<Company> list = new ArrayList<>();
-        public void addCompany(String name,int wage,int days,int hours) {
+
+        public void addCompany(String name, int wage, int days, int hours) {
             Company c = new Company(name);
-            c.setWage(ComputeEmpWage(wage,days,hours));
+            c.setWage(ComputeEmpWage(wage, days, hours));
             list.add(c);
         }
+
         public void computeWages() {
             System.out.println(" Wages via Interface:");
-            for(Company c : list) System.out.println(c.name + " = " + c.totalWage);
+            for (Company c : list) System.out.println(c.name + " = " + c.totalWage);
         }
     }
+
     public void InterfaceApproach() {
         EmpWageImpl emp = new EmpWageImpl();
-        for(int i=0;i<2;i++){
+        for (int i = 0; i < 2; i++) {
             System.out.print("Enter company name: ");
             String name = sc.next();
-            emp.addCompany(name, 20,20,100);
+            emp.addCompany(name, 20, 20, 100);
         }
         emp.computeWages();
     }
+
     public void ArrayListApproach() {
         ArrayList<Company> companies = new ArrayList<>();
-        for(int i=0;i<3;i++){
+        for (int i = 0; i < 3; i++) {
             System.out.print("Enter company name: ");
             String name = sc.next();
             Company c = new Company(name);
-            c.setWage(ComputeEmpWage(20,20,100));
+            c.setWage(ComputeEmpWage(20, 20, 100));
             companies.add(c);
         }
         System.out.println("Wages with ArrayList:");
-        for(Company c : companies) System.out.println(c.name + " = " + c.totalWage);
+        for (Company c : companies) System.out.println(c.name + " = " + c.totalWage);
     }
+
     class CompanyWithDaily extends Company {
         ArrayList<Integer> dailyWages = new ArrayList<>();
-        CompanyWithDaily(String name){super(name);}
-        void setDailyWages(ArrayList<Integer> wages){dailyWages=wages;}
+
+        CompanyWithDaily(String name) {
+            super(name);
+        }
+
+        void setDailyWages(ArrayList<Integer> wages) {
+            dailyWages = wages;
+        }
     }
+
     public void StoreDailyWage() {
         System.out.print(" Enter company name: ");
         String name = sc.next();
         CompanyWithDaily c = new CompanyWithDaily(name);
         ArrayList<Integer> daily = new ArrayList<>();
         Random random = new Random();
-        int totalWage=0;
+        int totalWage = 0;
         System.out.print("Enter number of working days: ");
         int days = sc.nextInt();
         System.out.print("Enter wage per hour: ");
         int wagePerHour = sc.nextInt();
-        for(int i=0;i<days;i++){
+        for (int i = 0; i < days; i++) {
             int empCheck = random.nextInt(3);
-            int hours = (empCheck==1)?8:(empCheck==2?4:0);
-            int wage = hours*wagePerHour; totalWage+=wage;
+            int hours = (empCheck == 1) ? 8 : (empCheck == 2 ? 4 : 0);
+            int wage = hours * wagePerHour;
+            totalWage += wage;
             daily.add(wage);
         }
-        c.setDailyWages(daily); c.setWage(totalWage);
+        c.setDailyWages(daily);
+        c.setWage(totalWage);
         System.out.println(" Daily Wages: " + c.dailyWages + "Total: " + c.totalWage);
     }
 
+    Map<String, Integer> wageMap = new HashMap<>();
+
+    public void QueryTotalWage() {
+        System.out.print("Enter company name to store: ");
+        String name = sc.next();
+        int wage = ComputeEmpWage(20, 20, 100);
+        wageMap.put(name, wage);
+        System.out.print("Enter company name to query: ");
+        String query = sc.next();
+        System.out.println(" Queried Wage for " + query + " = " + wageMap.getOrDefault(query, 0));
+    }
 
 
-
-
-
-
-
+    public static void main(String[] args) {
+        EmployeeWageCal emp = new EmployeeWageCal();
+        emp.CheckAttendance();
+        emp.DailyWage();
+        emp.PartTimeWage();
+        emp.UsingSwitchCase();
+        emp.MonthlyWage();
+        emp.TillCondition();
+        emp.ComputeEmpWage(20, 20, 100);
+        emp.MultipleCompanies();
+        emp.SaveTotalWage();
+        emp.ManageMultipleCompaniesArray();
+        emp.InterfaceApproach();
+        emp.ArrayListApproach();
+        emp.StoreDailyWage();
+        emp.QueryTotalWage();
+    }
 }
